@@ -12,4 +12,4 @@ IO.puts(inspect([0 | list]))
 
 # The pin operator: Matches without any assignment
 a = 1
-IO.puts ^a = 2 #MatchError
+IO.puts(^a = 2) #MatchError
