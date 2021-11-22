@@ -2,8 +2,8 @@
 k_list = [{:a, "Hello"}, {:b, "world"}]
 IO.puts(inspect(k_list))
 
-kList2 = k_list ++ [c: "!"]
-IO.puts(inspect(kList2))
+k_list_2 = k_list ++ [c: "!"]
+IO.puts(inspect(k_list_2))
 
 # Maps
 map = %{:a => "Hello", "World" => :b}
