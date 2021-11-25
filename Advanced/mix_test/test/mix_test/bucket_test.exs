@@ -8,4 +8,8 @@ defmodule MIX_TEST.BucketTest do
     MIX_TEST.Bucket.put(bucket, "milk", 3)
     assert MIX_TEST.Bucket.get(bucket, "milk") == 3
   end
+
+  test "are temporary workers" do
+    assert Supervisor.child_spec(MIX_TEST.Bucket, []).restart == :temporary
+  end
 end
