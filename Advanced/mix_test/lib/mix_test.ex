@@ -1,18 +1,10 @@
-defmodule MIX_TEST do
-  @moduledoc """
-  Documentation for `MIX_TEST`.
-  """
+defmodule MixTest do
+  use Application
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> MIX_TEST.hello()
-      "Hello world!"
-
-  """
-  def hello do
-    "Hello world!"
+  @impl true
+  def start(_type, _args) do
+    # Although we don't use the supervisor name below directly,
+    # it can be useful when debugging or introspecting the system.
+    MixTest.Supervisor.start_link(name: MixTest.Supervisor)
   end
 end

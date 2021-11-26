@@ -1,5 +1,5 @@
-defmodule MIX_TEST.Bucket do
-  use Agent
+defmodule MixTest.Bucket do
+  use Agent, restart: :temporary
 
   @doc """
   Starts a new bucket.
