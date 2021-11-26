@@ -1,5 +1,5 @@
 # GenServer
-defmodule MIX_TEST.Registry do
+defmodule MixTest.Registry do
   use GenServer
 
   ## Client API
@@ -55,7 +55,7 @@ defmodule MIX_TEST.Registry do
         {:reply, pid, {names, refs}}
 
       :error ->
-        {:ok, pid} = DynamicSupervisor.start_child(MIX_TEST.BucketSupervisor, MIX_TEST.Bucket)
+        {:ok, pid} = DynamicSupervisor.start_child(MixTest.BucketSupervisor, MixTest.Bucket)
         ref = Process.monitor(pid)
         refs = Map.put(refs, ref, name)
         :ets.insert(names, {name, pid})

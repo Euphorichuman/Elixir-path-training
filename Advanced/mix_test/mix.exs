@@ -1,4 +1,4 @@
-defmodule MIX_TEST.MixProject do
+defmodule MixTest.MixProject do
   use Mix.Project
 
   def project do
@@ -15,7 +15,7 @@ defmodule MIX_TEST.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {MIX_TEST, []}
+      mod: {MixTest, []}
     ]
   end
 

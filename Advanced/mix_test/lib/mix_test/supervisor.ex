@@ -1,4 +1,4 @@
-defmodule MIX_TEST.Supervisor do
+defmodule MixTest.Supervisor do
   use Supervisor
 
   def start_link(opts) do
@@ -8,8 +8,8 @@ defmodule MIX_TEST.Supervisor do
   @impl true
   def init(:ok) do
     children = [
-      {DynamicSupervisor, name: MIX_TEST.BucketSupervisor, strategy: :one_for_one},
-      {MIX_TEST.Registry, name: MIX_TEST.Registry}
+      {DynamicSupervisor, name: MixTest.BucketSupervisor, strategy: :one_for_one},
+      {MixTest.Registry, name: MixTest.Registry}
     ]
 
     Supervisor.init(children, strategy: :one_for_all)

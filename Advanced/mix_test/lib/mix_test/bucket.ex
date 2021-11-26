@@ -1,4 +1,4 @@
-defmodule MIX_TEST.Bucket do
+defmodule MixTest.Bucket do
   use Agent, restart: :temporary
 
   @doc """

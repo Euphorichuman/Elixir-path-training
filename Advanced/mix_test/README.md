@@ -1,4 +1,4 @@
-# MIX_TEST
+# MixTest
 
 **TODO: Add description**
 
