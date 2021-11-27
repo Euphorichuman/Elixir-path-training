@@ -9,7 +9,8 @@ defmodule MixTest.Supervisor do
   def init(:ok) do
     children = [
       {DynamicSupervisor, name: MixTest.BucketSupervisor, strategy: :one_for_one},
-      {MixTest.Registry, name: MixTest.Registry}
+      {MixTest.Registry, name: MixTest.Registry},
+      {Task.Supervisor, name: MixTest.RouterTasks}
     ]
 
     Supervisor.init(children, strategy: :one_for_all)

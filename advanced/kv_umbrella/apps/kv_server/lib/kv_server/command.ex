@@ -46,8 +46,10 @@ defmodule KVServer.Command do
   def run(command)
 
   def run({:create, bucket}) do
-    MixTest.Registry.create(MixTest.Registry, bucket)
-    {:ok, "OK\r\n"}
+    case MixTest.Router.route(bucket, MixTest.Registry, :create, [MixTest.Registry, bucket]) do
+      pid when is_pid(pid) -> {:ok, "OK\r\n"}
+      _ -> {:error, "FAILED TO CREATE BUCKET"}
+    end
   end
 
   def run({:get, bucket, key}) do
@@ -72,7 +74,7 @@ defmodule KVServer.Command do
   end
 
   defp lookup(bucket, callback) do
-    case MixTest.Registry.lookup(MixTest.Registry, bucket) do
+    case MixTest.Router.route(bucket, MixTest.Registry, :lookup, [MixTest.Registry, bucket]) do
       {:ok, pid} -> callback.(pid)
       :error -> {:error, :not_found}
     end
